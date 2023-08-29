@@ -1,0 +1,75 @@
+---
+title: "Homework 1"
+author: "Ryan Ackerman"
+date: "8/29/2023"
+output: html_document
+---
+
+## Setting Up Training/Testing Split
+```{r}
+library(tidyverse)
+library(data.table)
+
+df <- fread("Stat_380_housedata.csv")
+pattern <- "test"
+
+test <-
+  df %>%
+  filter(str_detect(Id, pattern = pattern))
+
+
+train <-
+  df %>%
+  filter(str_detect(Id, pattern = "train"))
+```
+
+## First Model: kNN
+### Scaling Variables
+```{r}
+
+
+```
+
+### Implementing Model
+```{r}
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -168,9 +168,10 @@ pre code {
 </div>
 
 
-<div id="setting-up-trainingtesting-split" class="section level2">
-<h2>Setting Up Training/Testing Split</h2>
-<pre class="r"><code>library(tidyverse)</code></pre>
+<div id="setup-and-calling-packages" class="section level2">
+<h2>Setup and Calling Packages</h2>
+<pre class="r"><code>remove(list = ls())
+library(tidyverse)</code></pre>
 <pre><code>## ── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
 ## ✔ dplyr     1.1.2     ✔ readr     2.1.4
 ## ✔ forcats   1.0.0     ✔ stringr   1.5.0
@@ -197,17 +198,9 @@ pre code {
 ## The following object is masked from &#39;package:purrr&#39;:
 ## 
 ##     transpose</code></pre>
-<pre class="r"><code>df &lt;- fread(&quot;Stat_380_housedata.csv&quot;)
-pattern &lt;- &quot;test&quot;
+<pre class="r"><code>library(FNN)
 
-test &lt;-
-  df %&gt;%
-  filter(str_detect(Id, pattern = pattern))
-
-
-train &lt;-
-  df %&gt;%
-  filter(str_detect(Id, pattern = &quot;train&quot;))</code></pre>
+df &lt;- fread(&quot;Stat_380_housedata.csv&quot;)</code></pre>
 </div>
 <div id="first-model-knn" class="section level2">
 <h2>First Model: kNN</h2>
@@ -216,6 +209,13 @@ train &lt;-
 </div>
 <div id="implementing-model" class="section level3">
 <h3>Implementing Model</h3>
+<pre class="r"><code>test &lt;-
+  df %&gt;%
+  filter(str_detect(Id, pattern = &quot;test&quot;))
+
+train &lt;-
+  df %&gt;%
+  filter(str_detect(Id, pattern = &quot;train&quot;))</code></pre>
 </div>
 </div>
 

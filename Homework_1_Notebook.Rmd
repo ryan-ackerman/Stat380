@@ -5,22 +5,14 @@ date: "8/29/2023"
 output: html_document
 ---
 
-## Setting Up Training/Testing Split
+## Setup and Calling Packages
 ```{r}
+remove(list = ls())
 library(tidyverse)
 library(data.table)
+library(FNN)
 
 df <- fread("Stat_380_housedata.csv")
-pattern <- "test"
-
-test <-
-  df %>%
-  filter(str_detect(Id, pattern = pattern))
-
-
-train <-
-  df %>%
-  filter(str_detect(Id, pattern = "train"))
 ```
 
 ## First Model: kNN
@@ -32,6 +24,14 @@ train <-
 
 ### Implementing Model
 ```{r}
+test <-
+  df %>%
+  filter(str_detect(Id, pattern = "test"))
+
+train <-
+  df %>%
+  filter(str_detect(Id, pattern = "train"))
+
 
 ```
 
